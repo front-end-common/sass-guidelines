@@ -13,7 +13,7 @@ safe: true
 markdown: kramdown
 
 # kramdown:
-#    transliterated_header_ids: true
+#     transliterated_header_ids: true
 
 sass:
     style: :compressed
