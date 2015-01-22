@@ -1,27 +1,27 @@
-# Arquitectura
+# Arquitetura
 
-Criar a arquitectura de um projecto de CSS é uma das coisas mais dificeis que terC!s que fazer durante a vida desse projecto.
-Manter essa arquitectura constante e significativa é ainda mais dificil.
+Criar a arquitetura de um projeto de CSS é uma das coisas mais difíceis que terás que fazer durante a vida desse projeto.
+Manter essa arquitetura constante e significativa é ainda mais difícil.
 
-Felizmente, um dos beneficios principais de usar um preprocessor de CSS C) ter a habilidade de dividir a nossa base de código em vários ficheiros sem ter impacto na performance (como a directiva de CSS `@import` fazia). Graças á sobrecarga da directiva `@import` no Sass, é perfeitamente seguro(e até recomendado) usar os ficheiros necessC!rios na fase de desenvolvimento, todos estes compilados num unica stylesheet quando o projecto for para produçõ.
+Felizmente, um dos benefícios principais de usar um pré-processador de CSS é ter a habilidade de dividir a nossa base de código em vários ficheiros sem ter impacto na performance (como a diretiva de CSS `@import` fazia). Graças à sobrecarga da diretiva `@import` no Sass, é perfeitamente seguro (e até recomendado) usar os ficheiros necessários na fase de desenvolvimento, todos estes compilados numa única stylesheet quando o projeto for para produção.
 
-Em cima disso, não posso salientar o suficiente a necessidade de pastas, mesmo em pequenos projectos. Em casa, não deixas todas as folhas de papel na mesma caixa. Tens uma para papeis da casa, uma para documentos do banco, uma contas e assim em diante. Não há razão para fazeres de maneira difrente quando estás a estruturar um projecto de CSS. Separa o teu código em pastas com nomes compreensiveis para depois ser fácil encontrar qualquer código quando mais tarde tiveres que voltar ao projecto.
+Em cima disso, não posso salientar o suficiente a necessidade de pastas, mesmo em pequenos projetos. Em casa, não deixas todas as folhas de papel na mesma caixa. Tens uma para os papéis da casa, uma para documentos do banco, uma para contas e assim em diante. Não há razão para fazeres de maneira diferente quando estás a estruturar um projeto de CSS. Separa o teu código em pastas com nomes compreensíveis para depois ser fácil encontrar qualquer código quando mais tarde tiveres que voltar ao projeto.
 
-Há muitas arquitecturas populares para projectos de CSS: [OOCSS](http://oocss.org/), [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/), como [Bootstrap](http://getbootstrap.com/), como [Foundation](http://foundation.zurb.com/)... Todas teêm os seus méritos, prós e contras.
+Há muitas arquiteturas populares para projectos de CSS: [OOCSS](http://oocss.org/), [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/), como [Bootstrap](http://getbootstrap.com/), como [Foundation](http://foundation.zurb.com/)... Todas têm os seus méritos, prós e contras.
 
-Eu uso uma abordagem que acaba por ser muito paraecida com [SMACSS](https://smacss.com/) de [Jonathan Snook](http://snook.ca/), e que se foca em manter as coisas simples e óbvias.
+Eu uso uma abordagem que acaba por ser muito parecida com [SMACSS](https://smacss.com/) de [Jonathan Snook](http://snook.ca/), e que se foca em manter as coisas simples e óbvias.
 
 <div class="note">
-  <p>Eu aprendi que a arquitectura é muito especifica para o projeto. Sente te á vontade para ignorares ou adpatares a solução proposta para lidares com um sistema que se adapta melhor ás tuas necessidades.</p>
+  <p>Eu aprendi que a arquitetura é muito especifica para o projeto. Sente te à vontade para ignorares ou adaptares a solução proposta para lidares com um sistema que se adapta melhor às tuas necessidade</p>
 </div>
 
 ### Leitura Adicional
 
-* [Arquitetura para um projecto de SASS](http://www.sitepoint.com/architecture-sass-project/)
+* [Arquitetura para um projeto de SASS](http://www.sitepoint.com/architecture-sass-project/)
 * [Uma Olhada a diferentes arquiteturas de SASS](http://www.sitepoint.com/look-different-sass-architectures/)
 * [FR] [Sass, une architecture composée](http://slides.com/hugogiraudel/sass-une-architecture-composee)
 * [SMACSS](https://smacss.com/)
-* [Uma introdução a  OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
+* [Uma introdução a OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 * [Atomic Web Design](http://bradfrost.com/blog/post/atomic-web-design/)
 
 
@@ -31,31 +31,31 @@ Eu uso uma abordagem que acaba por ser muito paraecida com [SMACSS](https://smac
 
 ## Componentes
 
-Há uma grande diferença entre fazer algo *funcionar* e fazer algo *bom*. Mais uma vez, CSS é uma linguagem muito desorganizada <sup>[Citação Necessária]</sup>. Quanto menos CSS tivermos melhor. Nós não queremos lidar com megabytes de CSS. Para manter as nossas stylesheets pequenas e efecientes&mdash;e isto não será nenhuma supresa para ti&mdash; é normalmente uma boa ideia pensar numa interface como uma colecção de componentes.
+Há uma grande diferença entre fazer algo *funcionar* e fazer algo *bom*. Mais uma vez, CSS é uma linguagem muito desorganizada <sup>[Citação Necessária]</sup>. Quanto menos CSS tiverem melhor. Nós não queremos lidar com megabytes de CSS. Para manter as nossas stylesheets pequenas e efecientes&mdash;e isto não será nenhuma surpresa para ti&mdash; é normalmente uma boa ideia pensar numa interface como uma coleção de componentes.
 
 Componentes podem ser qualquer coisa desde que:
 
 * façam uma e apenas uma coisa;
-* sejam reutilizáveis e usados por todo o projecto;
+* sejam reutilizáveis e usados por todo o projeto;
 * sejam independentes.
 
-Por exemplo um formulário de pesquisa devem ser tratado como um componente. Deverá ser reutilizável, em diferentes posições, páginas e em situações diversas. Não deve depender da sua posição na DOM (rodapé, barra lateral, conteudo principal..).
+Por exemplo um formulário de pesquisa deve ser tratado como um componente. Deverá ser reutilizável, em diferentes posições, páginas e em situações diversas. Não deve depender da sua posição na DOM (rodapé, barra lateral, conteúdo principal...).
 
-A maior parte de qualquer interface pode ser pensada como pequenos componentes e eu recomendo que fique com este paradigma. Isto vai não só diminuir a quantidade de CSS necessário para um projecto completo, mas também acaba por ser muito mais fácil de manter do que uma desorganização onde tudo está tudo junto. 
+A maior parte de qualquer interface pode ser pensada como pequenos componentes e eu recomendo que fique com este paradigma. Isto vai não só diminuir a quantidade de CSS necessário para um projeto completo, mas também acaba por ser muito mais fácil de manter do que uma desorganização onde tudo está tudo junto.
 
 
 
 
 ## O padrão 7-1
 
-Vamos então voltar á arquitetra, ok ? Eu normalmente uso o que chamo *O padrão 7-1*: 7 pastas, 1 ficheiro. Basicamnente, tudo o que tens são ficheiros parciais colocados em 7 pastas diferentes, e um único ficheiro na raiz do projeto (normalmente chamado `main.scss`) que importa todos os ficheiros parciais para serem compilados numa stylesheet de CSS.
+Vamos então voltar à arquitetura, ok? Eu normalmente uso o que chamo *O padrão 7-1*: 7 pastas, 1 ficheiro. Basicamente, tudo o que tens são ficheiros parciais colocados em 7 pastas diferentes, e um único ficheiro na raiz do projeto (normalmente chamado `main.scss`) que importa todos os ficheiros parciais para serem compilados numa stylesheet de CSS.
 
 * `base/`
-* `componentes/`
+* `components/`
 * `layout/`
-* `páginas/`
-* `temas/`
-* `utilidades/`
+* `pages/`
+* `themes/`
+* `utils/`
 * `vendors/`
 
 E claro:
@@ -67,7 +67,7 @@ E claro:
   <figcaption>Wallpaper de <a href="https://twitter.com/julien_he">Julien He</a></figcaption>
 </figure>
 
-Idealmente, teriamos algo como:
+Idealmente, teríamos algo como:
 
 <div class="highlight"><pre><code>
 sass/
@@ -77,7 +77,7 @@ sass/
 |   |- _typography.scss  # Regras de Tipografia
 |   ...                  # Etc...
 |
-|- componentes/
+|- components/
 |   |- _buttons.scss     # Botões
 |   |- _carousel.scss    # Carossel
 |   |- _cover.scss       # Cover
@@ -93,7 +93,7 @@ sass/
 |   |- _forms.scss       # Formulários
 |   ...                  # Etc...
 |
-|- paginas/
+|- pages/
 |   |- _home.scss        # Estilos especificos á Home
 |   |- _contact.scss     # Estilos especificos á página de Contacto
 |   ...                  # Etc...
@@ -103,7 +103,7 @@ sass/
 |   |- _admin.scss       # Tema de Adminisração
 |   ...                  # Etc...
 |
-|- utilidades/
+|- utils/
 |   |- _variables.scss   # Variáveis
 |   |- _functions.scss   # Funções
 |   |- _mixins.scss      # Mixins
@@ -119,13 +119,13 @@ sass/
 </code></pre></div>
 
 <div class="note">
-  <p>Os ficheiros seguem as mesma convenções de nome descritas em acima: são delimitados com um hifen.</p>
+  <p>Os ficheiros seguem as mesma convenções de nome descritas em acima: são delimitados com um hífen.</p>
 </div>
 
 
-### A pasta base
+### Pasta Base
 
-A pasta `base/`contém o que nós podemos chamar de código padrão para o projeto. Aqui podemos encontrar um ficheiro de reset, algumas regras tipográficas e provavelmente uma stylesheet (que estou a chamar `_base.scss`), que define alguns estilos padrão para elementos de HTML mais usados.
+A pasta `base/` contém o que nós podemos chamar de código padrão para o projeto. Aqui podemos encontrar um ficheiro de reset, algumas regras tipográficas e provavelmente uma stylesheet (que estou a chamar `_base.scss`), que define alguns estilos padrão para elementos de HTML mais usados.
 
 * `_base.scss`
 * `_reset.scss`
@@ -135,7 +135,7 @@ A pasta `base/`contém o que nós podemos chamar de código padrão para o proje
 
 ### Pasta Layout
 
-A pasta `layout/` contêm tudo que é nesesário para criar o layout do site ou aplicação. Esta pasta contêm as stylesheets para as partes principais do site (cabeçalho, rodapé, navegação, barra lateral...), a grelha ou mesmo o CSS de todos os formulários.  
+A pasta `layout/` contêm tudo que é necessário para criar o layout do site ou aplicação. Esta pasta contêm as stylesheets para as partes principais do site (cabeçalho, rodapé, navegação, barra lateral...), a grelha ou mesmo o CSS de todos os formulários.
 
 * `_grid.scss`
 * `_header.scss`
@@ -150,64 +150,303 @@ A pasta `layout/` contêm tudo que é nesesário para criar o layout do site ou 
 
 
 
-### Pasta de Componentes
+### Pasta Components
 
-Para componentes mais pequenos, há a pasta `componentes/`. Enquanto a pasta `layout/`é *macro* (definindo a estrutura global), a pasta `componentes/` é mais focada em módulos. Contêm todo o tipo de módulos especificos como um slider, um carregador e tudo que seja desse tipo.
-Há normalmente imensos ficheiros na pasta `componentes/` tendo em conta que todo o site/aplicação deverá ser constituido por pequenos módulos.
+Para componentes mais pequenos, há a pasta `components/`. Enquanto a pasta `layout/`é *macro* (definindo a estrutura global), a pasta `components/` é mais focada em módulos. Contêm todo o tipo de módulos específicos como um slider, um carregador e tudo que seja desse tipo.
+Há normalmente imensos ficheiros na pasta `components/` tendo em conta que todo o site/aplicação deverá ser constituído por pequenos módulos.
 
 * `_media.scss`
 * `_carousel.scss`
 * `_thumbnails.scss`
 
 <div class="note">
-  <p>A pasta <code>componentes/</code> também se poderá chamar <code>modulos/</code>, sendo isto uma questão de preferência.</p>
+  <p>A pasta <code>components/</code> também se poderá chamar <code>modulos/</code>, sendo isto uma questão de preferência.</p>
 </div>
 
 
 
-### A pasta páginas
+### Pasta Pages
 
-If you have page-specific styles, it is better to put them in a `pages/` folder, in a file named after the page. For instance, it's not uncommon to have very specific styles for the home page hence the need for a `_home.scss` file in `pages/`.
+Se tiveres estilos específicos a páginas, o melhor será colocá-las na pasta `pages/`, num ficheiro com o nome da página. Por exemplo, não deixa de ser comum ter estilos muito específicos para a página inicial que criam a necessidade de ter um `_home.scss` na pasta `pages/`.
 
 * `_home.scss`
 * `_contact.scss`
 
 <div class="note">
-  <p>Depending on your deployment process, these files could be called on their own to avoid merging them with the others in the resulting stylesheet. It is really up to you.</p>
+  <p>Dependendo do processo de desenvolvimento estes ficheiros podem ser chamados individualmente para evitar que eles se juntem com outros quando todas as stylesheets se juntam. Na realidade depende do que preferires.</p>
 </div>
-
 
 
 ### Pasta Temas
 
-On large sites and applications, it is not unusual to have different themes. There are certainly different ways of dealing with themes but I personally like having them all in a `themes/` folder.
+Em grandes sites ou aplicações, é comum existirem vários temas. Há certamente diversas maneira de lidar com temas mas eu pessoalmente gosto de colocar tudo numa pasta com o nome `themes/`.
 
 * `_theme.scss`
 * `_admin.scss`
 
 <div class="note">
-  <p>This is very project-specific and is likely to be non-existent on many projects.</p>
+  <p>Isto é algo muito especifico a cada projeto e em muitos deles podem nem existir a necessidade.</p>
 </div>
 
 
 
-### Utils folder
+### Pasta utils
 
-The `utils/` folder gathers all Sass tools and helpers used across the project. Every global variable, function, mixin and placeholder should be put in here.
+A pasta de `/utils` guarda todas as ferramentas e auxiliares de SASS usados por todo o projeto. Todas as funções globais, mixins e placeholders devem ser colocados nesta pasta.
 
-The rule of thumb for this folder is that it should not output a single line of CSS when compiled on its own. These are nothing but Sass helpers.
+A regra desta pasta é que não deve produzir uma única linha de CSS se for compilada sozinha. Tudo o que está aqui deverá ser nada mais que auxiliares.
 
 * `_variables.scss`
 * `_mixins.scss`
 * `_functions.scss`
-* `_placeholders.scss` (frequently named `_helpers.scss`)
+* `_placeholders.scss` (normalmente chamado `_helpers.scss`)
 
 <div class="note">
-  <p>The <code>utils/</code> folder might also be called <code>helpers/</code>, <code>sass-helpers/</code> or <code>sass-utils/</code>, depending on what you prefer.</p>
+  <p>A pasta <code>utils/</code> também pode ser chamada de <code>helpers/</code>, <code>sass-helpers/</code> ou <code>sass-utils/</code>, sendo uma questão de preferência.</p>
 </div>
 
 
 
 ### Vendors folder
 
-And last but not least, most projects will have a `vendors/` folder containing all the CSS files from external libraries and frameworks b
+And last but not least, most projects will have a `vendors/` folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
+
+* `_normalize.scss`
+* `_bootstrap.scss`
+* `_jquery-ui.scss`
+* `_select2.scss`
+
+If you have to override a section of any vendor, I recommend you have an 8th folder called `vendors-extensions/` in which you may have files named exactly after the vendors they overwrite.
+
+For instance, `vendors-extensions/_boostrap.scss` is a file containing all CSS rules intended to re-declare some of Bootstrap's default CSS. This is to avoid editing the vendor files themselves, which is generally not a good idea.
+
+
+
+### Main file
+
+The main file (usually labelled `main.scss`) should be the only Sass file from the whole code base not to begin with an underscore. This file should not contain anything but `@import` and comments.
+
+Files should be imported according to the folder they live in, one after the other in the following order:
+
+1. `vendors/`
+1. `utils/`
+1. `base/`
+1. `layout/`
+1. `components/`
+1. `pages/`
+1. `themes/`
+
+In order to preserve readability, the main file should respect these guidelines:
+
+* one file per `@import`;
+* one `@import` per line;
+* no new line between two imports from the same folder;
+* a new line after the last import from a folder;
+* file extensions and leading underscores omitted.
+
+<div class="code-block">
+  <div class="code-block__wrapper" data-syntax="scss">
+{% highlight scss %}
+@import 'vendors/bootstrap';
+@import 'vendors/jquery-ui';
+
+@import 'utils/variables';
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'layout/navigation';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/cover';
+@import 'components/dropdown';
+
+@import 'pages/home';
+@import 'pages/contact';
+
+@import 'themes/theme';
+@import 'themes/admin';
+{% endhighlight %}
+  </div>
+  <div class="code-block__wrapper" data-syntax="sass">
+{% highlight sass %}
+@import vendors/bootstrap
+@import vendors/jquery-ui
+
+@import utils/variables
+@import utils/functions
+@import utils/mixins
+@import utils/placeholders
+
+@import base/reset
+@import base/typography
+
+@import layout/navigation
+@import layout/grid
+@import layout/header
+@import layout/footer
+@import layout/sidebar
+@import layout/forms
+
+@import components/buttons
+@import components/carousel
+@import components/cover
+@import components/dropdown
+
+@import pages/home
+@import pages/contact
+
+@import themes/theme
+@import themes/admin
+{% endhighlight %}
+  </div>
+</div>
+
+There is another way of importing partials that I deem valid as well. On the bright side, it makes the file more readable. On the other hand, it makes updating it slightly more painful. Anyway, I'll let you decide which is best, it does not matter much. For this way of doing, the main file should respect these guidelines:
+
+* one `@import` per folder;
+* a linebreak after `@import`;
+* each file on its own line;
+* a new line after the last import from a folder;
+* file extensions and leading underscores omitted.
+
+<div class="code-block">
+  <div class="code-block__wrapper" data-syntax="scss">
+{% highlight scss %}
+@import
+  'vendors/bootstrap',
+  'vendors/jquery-ui';
+
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins',
+  'utils/placeholders';
+
+@import
+  'base/reset',
+  'base/typography';
+
+@import
+  'layout/navigation',
+  'layout/grid',
+  'layout/header',
+  'layout/footer',
+  'layout/sidebar',
+  'layout/forms';
+
+@import
+  'components/buttons',
+  'components/carousel',
+  'components/cover',
+  'components/dropdown';
+
+@import
+  'pages/home',
+  'pages/contact';
+
+@import
+  'themes/theme',
+  'themes/admin';
+{% endhighlight %}
+  </div>
+  <div class="code-block__wrapper" data-syntax="sass">
+{% highlight sass %}
+@import
+  vendors/bootstrap,
+  vendors/jquery-ui
+
+@import
+  utils/variables,
+  utils/functions,
+  utils/mixins,
+  utils/placeholders
+
+@import
+  base/reset,
+  base/typography
+
+@import
+  layout/navigation,
+  layout/grid,
+  layout/header,
+  layout/footer,
+  layout/sidebar,
+  layout/forms
+
+@import
+  components/buttons,
+  components/carousel,
+  components/cover,
+  components/dropdown
+
+@import
+  pages/home,
+  pages/contact
+
+@import
+  themes/theme,
+  themes/admin
+{% endhighlight %}
+  </div>
+</div>
+
+<div class="note">
+  <p>In order to not have to import each file manually, there is an extension to Ruby Sass called <a href="https://github.com/chriseppstein/sass-globbing">sass-globbing</a>, making it possible to use glob patterns in Sass <code>@import</code> such as <code>@import "components/*"</code>.</p>
+  <p>That being said, I would not recommend it because it imports files following the alphabetical order which is usually not what you want, especially when dealing with a source-order dependent language.</p>
+</div>
+
+
+
+
+
+
+## Shame file
+
+There is an interesting concept that has been made popular by [Harry Roberts](http://csswizardry.com), [Dave Rupert](http://daverupert.com) and [Chris Coyier](http://css-tricks.com) that consists of putting all the CSS declarations, hacks and things we are not proud of in a *shame file*. This file, dramatically titled `_shame.scss`, would be imported after any other file, at the very end of the stylesheet.
+
+<div class="code-block">
+  <div class="code-block__wrapper" data-syntax="scss">
+{% highlight scss %}
+/**
+ * Nav specificity fix.
+ *
+ * Someone used an ID in the header code (`#header a {}`) which trumps the
+ * nav selectors (`.site-nav a {}`). Use !important to override it until I
+ * have time to refactor the header stuff.
+ */
+.site-nav a {
+    color: #BADA55 !important;
+}
+{% endhighlight %}
+  </div>
+  <div class="code-block__wrapper" data-syntax="sass">
+{% highlight sass %}
+/**
+ * Nav specificity fix.
+ *
+ * Someone used an ID in the header code (`#header a {}`) which trumps the
+ * nav selectors (`.site-nav a {}`). Use !important to override it until I
+ * have time to refactor the header stuff.
+ */
+.site-nav a
+    color: #BADA55 !important
+{% endhighlight %}
+  </div>
+</div>
+
+
+
+### Further reading
+
+* [shame.css](http://csswizardry.com/2013/04/shame-css/)
+* [shame.css - full .net interview](http://csswizardry.com/2013/04/shame-css-full-net-interview/)
