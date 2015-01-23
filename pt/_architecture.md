@@ -1,13 +1,13 @@
 # Arquitetura
 
-Criar a arquitetura de um projeto de CSS é uma das coisas mais difíceis que terás que fazer durante a vida desse projeto.
+Criar a arquitetura de um projeto de CSS é uma das coisas mais difíceis que terás que fazer durante a vida de um projeto.
 Manter essa arquitetura constante e significativa é ainda mais difícil.
 
 Felizmente, um dos benefícios principais de usar um pré-processador de CSS é ter a habilidade de dividir a nossa base de código em vários ficheiros sem ter impacto na performance (como a diretiva de CSS `@import` fazia). Graças à sobrecarga da diretiva `@import` no Sass, é perfeitamente seguro (e até recomendado) usar os ficheiros necessários na fase de desenvolvimento, todos estes compilados numa única stylesheet quando o projeto for para produção.
 
 Em cima disso, não posso salientar o suficiente a necessidade de pastas, mesmo em pequenos projetos. Em casa, não deixas todas as folhas de papel na mesma caixa. Tens uma para os papéis da casa, uma para documentos do banco, uma para contas e assim em diante. Não há razão para fazeres de maneira diferente quando estás a estruturar um projeto de CSS. Separa o teu código em pastas com nomes compreensíveis para depois ser fácil encontrar qualquer código quando mais tarde tiveres que voltar ao projeto.
 
-Há muitas arquiteturas populares para projectos de CSS: [OOCSS](http://oocss.org/), [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/), como [Bootstrap](http://getbootstrap.com/), como [Foundation](http://foundation.zurb.com/)... Todas têm os seus méritos, prós e contras.
+Há muitas arquiteturas populares para projectos de CSS: [OOCSS](http://oocss.org/), [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/), arquitetura usada no [Bootstrap](http://getbootstrap.com/), arquitetura usada no [Foundation](http://foundation.zurb.com/)... Todas têm os seus méritos, prós e contras.
 
 Eu uso uma abordagem que acaba por ser muito parecida com [SMACSS](https://smacss.com/) de [Jonathan Snook](http://snook.ca/), e que se foca em manter as coisas simples e óbvias.
 
@@ -41,14 +41,14 @@ Componentes podem ser qualquer coisa desde que:
 
 Por exemplo um formulário de pesquisa deve ser tratado como um componente. Deverá ser reutilizável, em diferentes posições, páginas e em situações diversas. Não deve depender da sua posição na DOM (rodapé, barra lateral, conteúdo principal...).
 
-A maior parte de qualquer interface pode ser pensada como pequenos componentes e eu recomendo que fique com este paradigma. Isto vai não só diminuir a quantidade de CSS necessário para um projeto completo, mas também acaba por ser muito mais fácil de manter do que uma desorganização onde tudo está tudo junto.
+A maior parte de qualquer interface pode ser pensada como pequenos componentes e eu recomendo que fique com este paradigma. Isto vai não só diminuir a quantidade de CSS necessário para um projeto completo, mas também acaba por ser muito mais fácil so que manter uma desorganização onde está tudo junto.
 
 
 
 
 ## O padrão 7-1
 
-Vamos então voltar à arquitetura, ok? Eu normalmente uso o que chamo *O padrão 7-1*: 7 pastas, 1 ficheiro. Basicamente, tudo o que tens são ficheiros parciais colocados em 7 pastas diferentes, e um único ficheiro na raiz do projeto (normalmente chamado `main.scss`) que importa todos os ficheiros parciais para serem compilados numa stylesheet de CSS.
+Vamos então voltar à arquitetura, ok? Eu normalmente uso o que chamo *O padrão 7-1*: 7 pastas, 1 ficheiro. Basicamente, tudo o que tens são ficheiros parciais colocados em 7 pastas diferentes, e um único ficheiro na raiz do projeto (normalmente chamado `main.scss`) que importa todos os ficheiros parciais para serem compilados numa única stylesheet de CSS.
 
 * `base/`
 * `components/`
@@ -63,7 +63,7 @@ E claro:
 * `main.scss`
 
 <figure role="group">
-  <img src="/assets/images/sass-wallpaper.jpg" alt="Um ficheiro para governá-los todos, um ficheiro para encontrá-los, um ficheiro para trazê-los todos, E a maneira do SASS para fundi-los." />
+  <img src="/assets/images/sass-wallpaper.jpg" alt="Um ficheiro para governá-los todos, um ficheiro para encontrá-los, um ficheiro para trazê-los todos, e a maneira do SASS para fundi-los." />
   <figcaption>Wallpaper de <a href="https://twitter.com/julien_he">Julien He</a></figcaption>
 </figure>
 
@@ -94,13 +94,13 @@ sass/
 |   ...                  # Etc...
 |
 |- pages/
-|   |- _home.scss        # Estilos especificos á Home
+|   |- _home.scss        # Estilos especificos á página Inicial
 |   |- _contact.scss     # Estilos especificos á página de Contacto
 |   ...                  # Etc...
 |
 |- themes/
 |   |- _theme.scss       # Tema Padrão
-|   |- _admin.scss       # Tema de Adminisração
+|   |- _admin.scss       # Tema de Administração
 |   ...                  # Etc...
 |
 |- utils/
@@ -119,7 +119,7 @@ sass/
 </code></pre></div>
 
 <div class="note">
-  <p>Os ficheiros seguem as mesma convenções de nome descritas em acima: são delimitados com um hífen.</p>
+  <p>Os ficheiros seguem as mesma convenções de nome descritas acima: são delimitados com um hífen.</p>
 </div>
 
 
@@ -145,7 +145,7 @@ A pasta `layout/` contêm tudo que é necessário para criar o layout do site ou
 * `_navigation.scss`
 
 <div class="note">
-  <p>A pasta <code>layout/</code> também pode ser chamada <code>parciais/</code>, sendo isto uma questão de preferência.</p>
+  <p>A pasta <code>layout/</code> também pode ser chamada <code>partials/</code>, sendo isto uma questão de preferência.</p>
 </div>
 
 
@@ -160,7 +160,7 @@ Há normalmente imensos ficheiros na pasta `components/` tendo em conta que todo
 * `_thumbnails.scss`
 
 <div class="note">
-  <p>A pasta <code>components/</code> também se poderá chamar <code>modulos/</code>, sendo isto uma questão de preferência.</p>
+  <p>A pasta <code>components/</code> também se poderá chamar <code>modules/</code>, sendo isto uma questão de preferência.</p>
 </div>
 
 
@@ -173,7 +173,7 @@ Se tiveres estilos específicos a páginas, o melhor será colocá-las na pasta 
 * `_contact.scss`
 
 <div class="note">
-  <p>Dependendo do processo de desenvolvimento estes ficheiros podem ser chamados individualmente para evitar que eles se juntem com outros quando todas as stylesheets se juntam. Na realidade depende do que preferires.</p>
+  <p>Dependendo do processo de desenvolvimento estes ficheiros podem ser chamados individualmente para evitar que eles se juntem com outros quando todas as stylesheets se juntam. Na realidade depende è uma questão de preferência.</p>
 </div>
 
 
@@ -402,7 +402,7 @@ Existe outra maneira de importar parciais que também considero válida. O lado 
 
 <div class="note">
   <p>De maneira a não ter que importar cada ficheiro manualmente, existe uma extensão para o Sass chamada <a href="https://github.com/chriseppstein/sass-globbing">sass-globbing</a>, que torna possivel usar padrões globais no <code>@import</code> como <code>@import "components/*"</code>.</p>
-  <p>Tendo isto dito, eu não o recomendo o uso desta extensão porque ela importa os ficheiros por ordem alfabética e normalmente não é isto que queremos, principalmente quando lidamos com uma linguagem que se baseia na ordem.</p>
+  <p>Tendo isto dito, eu não recomendo o uso desta extensão porque ela importa os ficheiros por ordem alfabética e normalmente não é isto que queremos, principalmente quando lidamos com uma linguagem que se baseia na ordem.</p>
 </div>
 
 
