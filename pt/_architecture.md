@@ -207,26 +207,26 @@ A regra desta pasta é que não deve produzir uma única linha de CSS se for com
 
 
 
-### Vendors folder
+### Pasta Vendors
 
-And last but not least, most projects will have a `vendors/` folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
+E por fim, a maioria dos projetos irão ter uma pasta `vendors/` que vai conter todo o CSS usado por livrarias e frameworks externas - Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, e por ai. Por todos estes componentes na mesma pasta é uma boa maneira de dizer "Hey, este código não é meu, não o escrevi, não é a minha responsabilidade".
 
 * `_normalize.scss`
 * `_bootstrap.scss`
 * `_jquery-ui.scss`
 * `_select2.scss`
 
-If you have to override a section of any vendor, I recommend you have an 8th folder called `vendors-extensions/` in which you may have files named exactly after the vendors they overwrite.
+Se tiveres que substituir uma secção de alguma destas extensões, eu recomendo criar um oitava pasta chamada `vendors-extensions/` na qual estarão ficheiros com os mesmos nomes dos quais estás a substituir.
 
-For instance, `vendors-extensions/_boostrap.scss` is a file containing all CSS rules intended to re-declare some of Bootstrap's default CSS. This is to avoid editing the vendor files themselves, which is generally not a good idea.
+Por exemplo, `vendors-extensions/_boostrap.scss` é um ficheiro que contém todas as regras de CSS que tiveste que declarar de novo por cima do CSS padrão do Bootstrap. Isto é para evitar editar os ficheiros originais das extensões, o que normalmente não é uma boa ideia.
 
 
 
-### Main file
+### Ficheiro Principal
 
-The main file (usually labelled `main.scss`) should be the only Sass file from the whole code base not to begin with an underscore. This file should not contain anything but `@import` and comments.
+O ficheiro principal (normalmente chamado `main.scss`) deverá ser o único ficheiro de SASS que não começa com um underscore. Este ficheiro não deve conter nada mais que `@import` e comentários.
 
-Files should be imported according to the folder they live in, one after the other in the following order:
+Os ficheiros devem ser importados de acordo com a pasta onde estão, uma depois da outra na seguinte ordem:
 
 1. `vendors/`
 1. `utils/`
@@ -236,13 +236,13 @@ Files should be imported according to the folder they live in, one after the oth
 1. `pages/`
 1. `themes/`
 
-In order to preserve readability, the main file should respect these guidelines:
+De maneira a preservar a legibilidade, o ficheiro principal deverá seguir as seguintes diretrizes:
 
-* one file per `@import`;
-* one `@import` per line;
-* no new line between two imports from the same folder;
-* a new line after the last import from a folder;
-* file extensions and leading underscores omitted.
+* um ficheiro por `@import`;
+* um `@import`por linha;
+* não colocar linha de espaço entre importações da mesma pasta;
+* uma linha de espaço depois da ultima importação de uma pasta;
+* extensões e underscores antes do nome devem ser omitidos.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -311,13 +311,13 @@ In order to preserve readability, the main file should respect these guidelines:
   </div>
 </div>
 
-There is another way of importing partials that I deem valid as well. On the bright side, it makes the file more readable. On the other hand, it makes updating it slightly more painful. Anyway, I'll let you decide which is best, it does not matter much. For this way of doing, the main file should respect these guidelines:
+Existe outra maneira de importar parciais que também considero válida. O lado positivo dela é que torna o ficheiro mais legível. Por outro lado, faz qualquer mudança a esse ficheiro mais difícil. De qualquer maneira eu vou deixar isto ao vosso critério pois a diferença não é muita. Ao importar desta maneira o ficheiro principal deve seguir as seguintes diretrizes:
 
-* one `@import` per folder;
-* a linebreak after `@import`;
-* each file on its own line;
-* a new line after the last import from a folder;
-* file extensions and leading underscores omitted.
+* um `@import`por pasta;
+* linha de espaço entre cada `@import`;
+* cada ficheiro fica na sua linha;
+* uma linha de espaço depois da ultima importação numa pasta;
+* extensões e underscores antes do nome devem ser omitidos.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -401,28 +401,27 @@ There is another way of importing partials that I deem valid as well. On the bri
 </div>
 
 <div class="note">
-  <p>In order to not have to import each file manually, there is an extension to Ruby Sass called <a href="https://github.com/chriseppstein/sass-globbing">sass-globbing</a>, making it possible to use glob patterns in Sass <code>@import</code> such as <code>@import "components/*"</code>.</p>
-  <p>That being said, I would not recommend it because it imports files following the alphabetical order which is usually not what you want, especially when dealing with a source-order dependent language.</p>
+  <p>De maneira a não ter que importar cada ficheiro manualmente, existe uma extensão para o Sass chamada <a href="https://github.com/chriseppstein/sass-globbing">sass-globbing</a>, que torna possivel usar padrões globais no <code>@import</code> como <code>@import "components/*"</code>.</p>
+  <p>Tendo isto dito, eu não o recomendo o uso desta extensão porque ela importa os ficheiros por ordem alfabética e normalmente não é isto que queremos, principalmente quando lidamos com uma linguagem que se baseia na ordem.</p>
 </div>
 
 
 
 
 
+## Ficheiro Vergonhoso
 
-## Shame file
-
-There is an interesting concept that has been made popular by [Harry Roberts](http://csswizardry.com), [Dave Rupert](http://daverupert.com) and [Chris Coyier](http://css-tricks.com) that consists of putting all the CSS declarations, hacks and things we are not proud of in a *shame file*. This file, dramatically titled `_shame.scss`, would be imported after any other file, at the very end of the stylesheet.
+Existe um conceito interessante que foi tornado popular por [Harry Roberts](http://csswizardry.com), [Dave Rupert](http://daverupert.com) e [Chris Coyier](http://css-tricks.com) que consiste em colocar todas as declarações, hacks e coisas das quais não estamos propriamente orgulhosos num *ficheiro vergonhoso*. Este ficheiro dramaticamente chamado `_shame.css`, seria importado depois de todos os outros mesmo no fim da stylesheet.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
 {% highlight scss %}
 /**
- * Nav specificity fix.
+ * Arranjar a navegação.
  *
- * Someone used an ID in the header code (`#header a {}`) which trumps the
- * nav selectors (`.site-nav a {}`). Use !important to override it until I
- * have time to refactor the header stuff.
+ * Alguém usou um ID no código do cabeçalho (`#header a {}`) que passa por cima
+ * dos seletores da navegação (`.site-nav a {}`). Usar !important para sobrepor 
+ * estes até ter tempo de refazer o código do cabeçalho.
  */
 .site-nav a {
     color: #BADA55 !important;
@@ -432,11 +431,11 @@ There is an interesting concept that has been made popular by [Harry Roberts](ht
   <div class="code-block__wrapper" data-syntax="sass">
 {% highlight sass %}
 /**
- * Nav specificity fix.
+ * Arranjar a navegação.
  *
- * Someone used an ID in the header code (`#header a {}`) which trumps the
- * nav selectors (`.site-nav a {}`). Use !important to override it until I
- * have time to refactor the header stuff.
+ * Alguém usou um ID no código do cabeçalho (`#header a {}`) que passa por cima
+ * dos seletores da navegação (`.site-nav a {}`). Usar !important para sobrepor 
+ * estes até ter tempo de refazer o código do cabeçalho.
  */
 .site-nav a
     color: #BADA55 !important
@@ -446,7 +445,7 @@ There is an interesting concept that has been made popular by [Harry Roberts](ht
 
 
 
-### Further reading
+### Leitura Adicional
 
 * [shame.css](http://csswizardry.com/2013/04/shame-css/)
-* [shame.css - full .net interview](http://csswizardry.com/2013/04/shame-css-full-net-interview/)
+* [shame.css - Entrevista completa .net](http://csswizardry.com/2013/04/shame-css-full-net-interview/)
