@@ -41,7 +41,7 @@ Componentes podem ser qualquer coisa desde que:
 
 Por exemplo um formulário de pesquisa deve ser tratado como um componente. Deverá ser reutilizável, em diferentes posições, páginas e em situações diversas. Não deve depender da sua posição na DOM (rodapé, barra lateral, conteúdo principal...).
 
-A maior parte de qualquer interface pode ser pensada como pequenos componentes e eu recomendo que fique com este paradigma. Isto vai não só diminuir a quantidade de CSS necessário para um projeto completo, mas também acaba por ser muito mais fácil so que manter uma desorganização onde está tudo junto.
+A maior parte de qualquer interface pode ser pensada como pequenos componentes e eu recomendo que fique com este paradigma. Isto vai não só diminuir a quantidade de CSS necessário para um projeto completo, mas também acaba por ser muito mais fácil do que manter uma desorganização onde está tudo junto.
 
 
 
